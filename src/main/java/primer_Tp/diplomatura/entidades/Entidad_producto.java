@@ -1,12 +1,12 @@
 package primer_Tp.diplomatura.entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Entidad_producto {
@@ -17,15 +17,16 @@ public class Entidad_producto {
 
     @Column(nullable = false)
     private String nombre;
-    
+
     @ManyToOne
     @JoinColumn(name = "autor_id")
     private Entidad_Autor autor;
-    
+
     @Column(nullable = false)
     private boolean isAvailable;
 
-    public Entidad_producto() {}
+    public Entidad_producto() {
+    }
 
     public Entidad_producto(String nombre, String autor, boolean isAvailable) {
         this.nombre = nombre;
@@ -65,16 +66,9 @@ public class Entidad_producto {
         this.isAvailable = isAvailable;
     }
 
-    
-
-
-    
-    
-
-    
 }
 
-/* 
+/*
  * @Entity indica que esta clase es una entidad que se mapeara
  * a una tabla en la base de datos del repositorio
  * 
@@ -86,4 +80,4 @@ public class Entidad_producto {
  * 
  * @Column(nullable = false) se utiliza para especificar que los
  * atributos nombre, stock y precio no pueden ser nulos
-*/
+ */

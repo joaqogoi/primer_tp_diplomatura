@@ -3,20 +3,20 @@ package primer_Tp.diplomatura.entidades;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Entidad_usuario {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -33,7 +33,8 @@ public class Entidad_usuario {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Entidad_producto> productos = new ArrayList<>();
 
-    public Entidad_usuario() {}
+    public Entidad_usuario() {
+    }
 
     public Entidad_usuario(String nombre, String email, boolean esCliente) {
         this.nombre = nombre;
@@ -74,20 +75,16 @@ public class Entidad_usuario {
         this.esCliente = esCliente;
     }
 
-    
-    public void agregarProducto(Entidad_producto producto){
+    public void agregarProducto(Entidad_producto producto) {
         productos.add(producto);
     }
 
-    public void eliminarProducto(Entidad_producto producto){
+    public void eliminarProducto(Entidad_producto producto) {
         productos.remove(producto);
     }
 
     public List<Entidad_producto> getProductos() {
         return productos;
     }
-
-    
-
 
 }

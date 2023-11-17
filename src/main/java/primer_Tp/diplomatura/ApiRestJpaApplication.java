@@ -18,32 +18,31 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class ApiRestJpaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ApiRestJpaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ApiRestJpaApplication.class, args);
+    }
 
-	@Bean
+    @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-            .select()
-            .paths(PathSelectors.ant("/*"))
-            .apis(RequestHandlerSelectors.basePackage("C:\\Programacion\\diplomatura\\Springboot\\ProyectosSpring\\primer_tp_diplomatura\\src\\main\\java\\primer_Tp"))
-            .build()
-            .apiInfo(apiCustomData());
+                .select()
+                .paths(PathSelectors.ant("/*"))
+                .apis(RequestHandlerSelectors.basePackage("/primer_tp_diplomatura/**/*.java"))
+                .build()
+                .apiInfo(apiCustomData());
 
     }
 
     private ApiInfo apiCustomData() {
         return new ApiInfo(
-            "Gestion de bibliotecas",
-            "Sistema de gestion simple",
-            "version-1.0",
-            "Terminos de servicio",
-            new Contact("Goizueta Joaquín", "URL", "joaquin@gmail.com"),
-            "Licencia",
-            "Url Licencia",
-            Collections.emptyList()
-        );
+                "Gestion de bibliotecas",
+                "Sistema de gestion simple",
+                "version-1.0",
+                "Terminos de servicio",
+                new Contact("Goizueta Joaquín", "URL", "joaquin@gmail.com"),
+                "Licencia",
+                "Url Licencia",
+                Collections.emptyList());
     }
 
 }
