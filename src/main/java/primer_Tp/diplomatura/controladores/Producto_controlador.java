@@ -19,7 +19,7 @@ import primer_Tp.diplomatura.servicios.Producto_servicio;
 import primer_Tp.diplomatura.servicios.Usuario_servicio;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/biblioteca")
 public class Producto_controlador {
     @Autowired
     Producto_servicio producto_servicio;

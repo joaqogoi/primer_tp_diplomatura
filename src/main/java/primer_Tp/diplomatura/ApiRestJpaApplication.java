@@ -26,7 +26,7 @@ public class ApiRestJpaApplication {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .paths(PathSelectors.ant("/*"))
+                .paths(PathSelectors.ant("/biblioteca/*"))
                 .apis(RequestHandlerSelectors.basePackage("/primer_tp_diplomatura/**/*.java"))
                 .build()
                 .apiInfo(apiCustomData());
